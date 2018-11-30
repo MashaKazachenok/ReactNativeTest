@@ -10,7 +10,7 @@ export default class AddBook extends React.Component {
     return (
       <View style={styles.container}>
         <Text style={styles.title}>
-        AddBook
+        Add Book
         </Text>
       </View>
     );

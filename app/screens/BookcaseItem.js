@@ -1,32 +1,80 @@
-import React from 'react';
-import {
-  StyleSheet,
-  Text,
-  View
-} from 'react-native';
+import React, { Component } from "react";
+import { StyleSheet, TouchableOpacity, Text, Image, View } from "react-native";
 
-export default class BookcaseItem extends React.Component {
+export default class BookcaseItem extends Component {
+  _onEditBook = () => {
+    let id = this.props.id;
+  };
+
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.title}>
-        Bookcase Item
-        </Text>
-      </View>
+      <TouchableOpacity
+        onPress={() =>
+          this.props.navigation.navigate("EditBook", {
+            id: this.props.id,
+            navigation: this.props.navigation
+          })
+        }
+      >
+        <View style={styles.rowContainer}>
+          <Image
+            source={{ uri: this.props.thumbnail }}
+            style={styles.thumbnail}
+            resizeMode="contain"
+          />
+          <View style={styles.rowText}>
+            <Text style={styles.title} numberOfLines={2} ellipsizeMode={"tail"}>
+              {this.props.title}
+            </Text>
+            <Text
+              style={styles.author}
+              numberOfLines={1}
+              ellipsizeMode={"tail"}
+            >
+              {this.props.author}
+            </Text>
+          </View>
+        </View>
+      </TouchableOpacity>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+  rowContainer: {
+    flexDirection: "row",
+    backgroundColor: "#FFF",
+    height: 100,
+    padding: 10,
+    marginRight: 10,
+    marginLeft: 10,
+    marginTop: 10,
+    borderRadius: 4,
+    shadowOffset: { width: 1, height: 1 },
+    shadowColor: "#CCC",
+    shadowOpacity: 1.0,
+    shadowRadius: 1
   },
   title: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
+    paddingLeft: 10,
+    paddingTop: 5,
+    fontSize: 16,
+    fontWeight: "bold",
+    color: "#777"
+  },
+  author: {
+    paddingLeft: 10,
+    marginTop: 5,
+    fontSize: 14,
+    color: "#777"
+  },
+  thumbnail: {
+    flex: 1,
+    height: undefined,
+    width: undefined
+  },
+  rowText: {
+    flex: 4,
+    flexDirection: "column"
   }
 });

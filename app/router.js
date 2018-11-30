@@ -1,6 +1,4 @@
-import React, { Component } from "react";
-import { Dimensions, Platform } from "react-native";
-import { StackNavigator, TabNavigator } from "react-navigation";
+import React from "react";
 import { Icon } from "react-native-elements";
 import {
   createStackNavigator,
