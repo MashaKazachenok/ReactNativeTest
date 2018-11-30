@@ -28,8 +28,8 @@ export const Tabs = createBottomTabNavigator({
       tabBarLabel: "Explore",
       tabBarIcon: ({ tintColor }) => (
         <Icon
-          name="ios-map-outline"
-          type="ionicon"
+          name="browser"
+          type="entypo"
           size={28}
           color={tintColor}
         />
@@ -65,8 +65,8 @@ export const Tabs = createBottomTabNavigator({
       tabBarLabel: "Profile",
       tabBarIcon: ({ tintColor }) => (
         <Icon
-          name="ios-person-outline"
-          type="ionicon"
+          name="user"
+          type="entypo"
           size={28}
           color={tintColor}
         />
